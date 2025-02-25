@@ -4,6 +4,8 @@ import {store} from './app/store';
 import PersonList from './components/PersonList';
 import {CssBaseline, Container} from '@mui/material';
 
+import './App.css'
+
 const App: React.FC = () => {
     return (
         <Provider store={store}>
