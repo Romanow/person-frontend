@@ -1,50 +1,20 @@
+[![CI](https://github.com/Romanow/person-frontend/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/Romanow/person-frontend/actions/workflows/build.yml)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![Release](https://img.shields.io/github/v/release/Romanow/person-frontend?logo=github&sort=semver)](https://github.com/Romanow/person-frontend/releases/latest)
+[![Docker Pulls](https://img.shields.io/docker/pulls/romanowalex/person-frontend?logo=docker)](https://hub.docker.com/r/romanowalex/person-frontend)
+[![License](https://img.shields.io/github/license/Romanow/person-frontend)](https://github.com/Romanow/person-frontend/blob/main/LICENSE)
+
 # Person Service
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GitHub: [romanow/person-frontend](https://github.com/Romanow/person-frontend).
+Person Service Backend: [romanow/person-service](https://github.com/Romanow/person-service).
 
-Currently, two official plugins are available:
+## Локальный запуск
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Используем [docker-compose.yml](docker-compose.yml):
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```shell
+$ npm install
+$ docker compose up -d --wait postgres person-service
+$ npm run dev
 ```

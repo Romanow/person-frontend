@@ -1,11 +1,18 @@
-import './App.css'
+import React from 'react';
+import {Provider} from 'react-redux';
+import {store} from './app/store';
+import PersonList from './components/PersonList';
+import {CssBaseline, Container} from '@mui/material';
 
-function App() {
+const App: React.FC = () => {
     return (
-        <>
-            <h1>Hello, world</h1>
-        </>
-    )
-}
+        <Provider store={store}>
+            <CssBaseline/>
+            <Container maxWidth="lg">
+                <PersonList/>
+            </Container>
+        </Provider>
+    );
+};
 
-export default App
+export default App;
